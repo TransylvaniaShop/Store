@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #dedede;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        textarea {
+            height: 100px;
+        }
+        ::selection {
+    background: #A37E2C;
+    color: WHITE;
+  }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: hsl(  120, 22%, 25%);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .form-container p {
+            text-align: center;
+            color: #888;
+        }
+
+        .wishlist-items {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Complete Your Order</h1>
+        <form action="https://api.web3forms.com/submit" method="post">
+            <input type="hidden" name="access_key" value="21d22741-2dc6-4d36-bd8e-aeaac6f112cd">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="address">Phone:</label>
+            <input type="text" id="phone" name="phone" required>
+
+            <label for="wishlist-items">Products from Wishlist:</label>
+            <textarea id="wishlist-items" name="wishlist-items" readonly></textarea>
+            <!--<p id="total-amount" style="text-align: center; color: #333; font-size: 18px; margin-bottom: 20px;">Total: 0.00 RON</p>-->
+            <button type="submit">Submit Order</button>
+        </form>
+
+        <p>All fields are required</p>
+    </div>
+
+    <script>
+        function loadWishlistItems() {
+            let wishlist = localStorage.getItem('wishlist');
+            const wishlistTextarea = document.getElementById('wishlist-items');
+            const totalSpan = document.getElementById('total-amount');
+    
+            if (wishlist) {
+                wishlist = JSON.parse(wishlist);
+                let productNames = wishlist.map(product => {
+                    // Include unitatea monetară în afișare
+                    return `${product.name} (Quantity: ${product.quantity || 1}, Price: ${product.price})`;
+                });
+                wishlistTextarea.value = productNames.join('\n');
+                
+                // Calculam totalul comenzii
+                let total = wishlist.reduce((sum, product) => {
+                    // Extrage prețul și elimină unitatea monetară înainte de a aduna
+                    let price = parseFloat(product.price.replace(' RON', ''));
+                    return sum + (price || 0);
+                }, 0);
+                totalSpan.innerText = `Total: ${total.toFixed(2)} RON`;
+            } else {
+                wishlistTextarea.value = 'No products in wishlist';
+                totalSpan.innerText = 'Total: 0.00 RON';
+            }
+            
+        }
+        
+    
+        // Apelăm funcția când se încarcă pagina
+        document.addEventListener('DOMContentLoaded', loadWishlistItems);
+    </script>
+</body>
+</html>

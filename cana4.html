@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Cana Romania</title>
+    <link rel="stylesheet" href="products.css">
+    <script>
+        function changeLanguage(lang) {
+            // Simplu exemplu de schimbare a limbii
+            const descriptions = {
+                ro: "Cana decorată cu România: un design unic care aduce frumusețea și cultura țării în fiecare zi. Perfectă pentru colecționari și iubitori de România!",
+                eng: "Mug decorated with Romania: a unique design that brings the country's beauty and culture to every day. Perfect for collectors and lovers of Romania!",
+                hun: "Romániával díszített bögre: egyedi dizájn, amely az ország szépségét és kultúráját hozza a mindennapokba. Tökéletes gyűjtőknek és Románia szerelmeseinek!"
+            };
+            document.querySelector('.product-description').innerText = descriptions[lang];
+            const button = {
+                ro: "Inapoi",
+                eng: "Back",
+                hun: "Vissza"
+            };
+            document.querySelector('.back-button').innerText = button[lang];
+            const name = {
+                ro: "Cana Decorata - Maramures ",
+                eng: "Decorated Mug - Maramures",
+                hun: "Díszített bot - Máramaros"
+            };
+            document.querySelector('.product-name').innerText = name[lang];
+            const wishbut = {
+                ro: "Adauga in Wishlist",
+                eng: "Add to Wishlist",
+                hun: "Hozzáadás a kívánságlistához"
+            };
+            document.querySelector('.wishlist-button').innerText = wishbut[lang];
+        }
+
+        function addToWishlist() {
+            const product = {
+                name: document.querySelector('.product-name').innerText,
+                price: document.querySelector('.product-price').innerText,
+                image: document.querySelector('.product-image').src,
+                description: document.querySelector('.product-description').innerText
+            };
+
+            let wishlist = localStorage.getItem('wishlist');
+            if (!wishlist) {
+                wishlist = [];
+            } else {
+                wishlist = JSON.parse(wishlist);
+            }
+
+            wishlist.push(product);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            alert('Produsul a fost adăugat în wishlist!');
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <button class="back-button" onclick="window.location.href='index.html'">Inapoi</button>
+    <div class="language-buttons">
+        <button class="language-button" onclick="changeLanguage('ro')">RO</button>
+        <button class="language-button" onclick="changeLanguage('eng')">ENG</button>
+        <button class="language-button" onclick="changeLanguage('hun')">HUN</button>
+    </div>
+</div>
+
+<div class="product-content">
+    <img src="Sourvenirs\Cani\4.jpeg" alt="Produs" class="product-image">
+    <div class="product-details">
+        <h1 class="product-name">Cana Decorata - Maramures</h1>
+        <h2 class="product-price">20 RON</h2>
+        <p class="product-description">Cana decorată cu România: un design unic care aduce frumusețea și cultura țării în fiecare zi. Perfectă pentru colecționari și iubitori de România!</p>
+        <button class="wishlist-button" onclick="addToWishlist()">Add to Wishlist</button>
+    </div>
+</div>
+
+</body>
+</html>

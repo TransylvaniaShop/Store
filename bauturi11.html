@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Produs</title>
+    <link rel="stylesheet" href="products.css">
+    <script>
+        function changeLanguage(lang) {
+            // Simplu exemplu de schimbare a limbii
+            const descriptions = {
+                ro: "Setul de 6 pahare de shot include șase recipiente mici, ideale pentru servirea băuturilor în porții mici. Perfecte pentru cocktailuri, aperitive sau băuturi concentrate, aceste pahare adaugă un plus de eleganță și distracție în orice întâlnire sau petrecere.",
+                eng: "The set of 6 shot glasses includes six small containers, ideal for serving drinks in small portions. Perfect for cocktails, aperitifs or concentrated drinks, these glasses add elegance and fun to any meeting or party.",
+                hun: "A 6 pohárból álló készlet hat kis tartályt tartalmaz, amelyek ideálisak az italok kis adagokban történő felszolgálására. Tökéletes koktélokhoz, aperitifekhez vagy tömény italokhoz, ezek a poharak eleganciát és szórakozást kölcsönöznek minden találkozónak vagy partinak."
+            };
+            document.querySelector('.product-description').innerText = descriptions[lang];
+            const button = {
+                ro: "Inapoi",
+                eng: "Back",
+                hun: "Vissza"
+            };
+            document.querySelector('.back-button').innerText = button[lang];
+            const name = {
+                ro: "6 Pahare #11",
+                eng: "6 Glasses #11",
+                hun: "6 Üveg #11"
+            };
+            document.querySelector('.product-name').innerText = name[lang];
+            const wishbut = {
+                ro: "Adauga in Wishlist",
+                eng: "Add to Wishlist",
+                hun: "Hozzáadás a kívánságlistához"
+            };
+            document.querySelector('.wishlist-button').innerText = wishbut[lang];
+        }
+
+        function addToWishlist() {
+            const product = {
+                name: document.querySelector('.product-name').innerText,
+                price: document.querySelector('.product-price').innerText,
+                image: document.querySelector('.product-image').src,
+                description: document.querySelector('.product-description').innerText
+            };
+
+            let wishlist = localStorage.getItem('wishlist');
+            if (!wishlist) {
+                wishlist = [];
+            } else {
+                wishlist = JSON.parse(wishlist);
+            }
+
+            wishlist.push(product);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            alert('Produsul a fost adăugat în wishlist!');
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <button class="back-button" onclick="window.location.href='index.html'">Inapoi</button>
+    <div class="language-buttons">
+        <button class="language-button" onclick="changeLanguage('ro')">RO</button>
+        <button class="language-button" onclick="changeLanguage('eng')">ENG</button>
+        <button class="language-button" onclick="changeLanguage('hun')">HUN</button>
+    </div>
+</div>
+
+<div class="product-content">
+    <img src="Sourvenirs\Bauturi\12.png" alt="Produs" class="product-image">
+    <div class="product-details">
+        <h1 class="product-name">6 Pahare #11</h1>
+        <h2 class="product-price">50 RON</h2>
+        <p class="product-description">Setul de 6 pahare de shot include șase recipiente mici, ideale pentru servirea băuturilor în porții mici. Perfecte pentru cocktailuri, aperitive sau băuturi concentrate, aceste pahare adaugă un plus de eleganță și distracție în orice întâlnire sau petrecere.</p>
+        <button class="wishlist-button" onclick="addToWishlist()">Add to Wishlist</button>
+    </div>
+</div>
+
+</body>
+</html>

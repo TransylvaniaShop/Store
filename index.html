@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transylvania Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body id="top">
+  
+  <header class="header" data-header>
+    <div class="container">
+      <div class="overlay" data-overlay></div>
+      <nav class="navbar" data-navbar>
+        <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+          <ion-icon name="close-outline"></ion-icon>
+            </button>
+            <ul class="navbar-list">
+                <li class="navbar-item">
+                  <a href="index.html" class="navbar-link" id="home">Home</a>
+                </li>
+                <li class="bara">|</li>
+                <li class="navbar-item">
+                    <a href="about.html" class="navbar-link" id="about">About</a>
+                  </li>
+                  <li class="bara">|</li>
+                  <li class="navbar-item">
+                    <a href="contact.html" class="navbar-link" id="contact">Contact</a>
+                </li>
+              </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="white-bar">
+      <div class="container">
+        <a href="index.html" class="logo">
+            <img src="Images/logo2.png" width="100" height="75" alt="Transylvania Souvenirs logo">
+        </a>
+        <form class="search-form" action="/search" method="get">
+          <input type="text" id="searchInput" name="q" placeholder="Search...">
+          <button type="submit" aria-label="Search">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+        <button class="nav-open-btn" data-nav-open-btn aria-label="Open Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        
+        <div class="language-buttons nav-elements">
+          <button onclick="changeLanguage('en')" class="language-button">ENG</button>
+          <button onclick="changeLanguage('ro')" class="language-button">RO</button>
+          <button onclick="changeLanguage('hu')" class="language-button">HUN</button>
+          <button class="wishlist-button" aria-label="Wishlist" onclick="showWishlist()">
+            <i class="fa-solid fa-cart-arrow-down"></i>
+          </button>
+        </div>
+        
+      </div>
+    </div>
+    <main>
+      <article>
+        <section class="section product">
+          <div class="container">
+            <h2 class="h2 section-title" id="title">Products</h2>
+
+            <ul class="product-list">
+              <li class="product-item" data-categories="magnets">
+                <a href="Cani.html">
+                        <div class="product-card" tabindex="0">
+                          <div class="card-content">
+                            <h3 class="h3 card-title" id="pro1">Căni</h3>
+                          </div>
+                          <figure class="card-banner">
+                            <img src="Sourvenirs/Cani/2.jpeg" width="312" height="350" loading="lazy"
+                              alt="Ceva" class="image-contain">     
+                          </figure>
+                            </a>
+                        </div>
+                      </li>
+
+                      <li class="product-item" data-categories="magnets">
+                        <a href="Magnet.html">
+                        <div class="product-card" tabindex="0">
+                          <div class="card-content">
+                            <h3 class="h3 card-title" id="pro2">Magnet</h3>
+                          </div>
+                          <figure class="card-banner">
+                            <img src="Sourvenirs/Magnet/10.png" width="312" height="350" loading="lazy"
+                              alt="Ceva" class="image-contain">     
+                          </figure>
+                            </a>
+                        </div>
+                      </li>
+
+                      <li class="product-item" data-categories="ceramics">
+                        <a href="Bauturi.html">
+                        <div class="product-card" tabindex="0">
+                          <div class="card-content">
+                            <h3 class="h3 card-title" id="pro3">Băuturi</h3>
+                          </div>
+                          <figure class="card-banner">
+                            <img src="Sourvenirs/Bauturi/3.png" width="312" height="350" loading="lazy"
+                              alt="Ceva" class="image-contain">     
+                          </figure>
+                            </a>
+                        </div>
+                      </li>
+
+                      <li class="product-item" data-categories="ceramics">
+                        <a href="Suvenir.html">
+                        <div class="product-card" tabindex="0">
+                          <div class="card-content">
+                            <h3 class="h3 card-title" id="pro4">Suvenir</h3>
+                          </div>
+                          <figure class="card-banner">
+                            <img src="Sourvenirs/Suvenir/1.png" width="312" height="350" loading="lazy"
+                              alt="Ceva" class="image-contain">     
+                          </figure>
+                            </a>
+                        </div>
+                      </li>
+
+                      <li class="product-item" data-categories="ceramics">
+                        <a href="Breloc.html">
+                        <div class="product-card" tabindex="0">
+                          <div class="card-content">
+                            <h3 class="h3 card-title" id="pro5">Breloc</h3>
+                          </div>
+                          <figure class="card-banner">
+                            <img src="Sourvenirs/Breloc/1.png" width="312" height="350" loading="lazy"
+                              alt="Ceva" class="image-contain">     
+                          </figure>
+                            </a>
+                        </div>
+                      </li>
+
+                    </ul>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <div class="wishlist-modal" id="wishlist-modal">
+        <div class="wishlist-content">
+            <button class="close-wishlist" onclick="closeWishlist()">x</button>
+            <h2>Wishlist</h2>
+            <ul id="wishlist-items"></ul>
+            <button id="send-email-btn" disabled onclick="goToOrderForm()">Send Email</button>
+        </div>
+    </div>
+
+    <style>
+      #send-email-btn {
+        color: #A37E2C;
+        margin-left: auto;
+        border: 1px solid #A37E2C;
+        padding: 5px;
+        border-radius: 50px;
+        background-color: #dcbf82;
+      }
+      #send-email-btn:hover {
+        color: #A37E2C;
+        margin-left: auto;
+        border: 1px solid #A37E2C;
+        padding: 5px;
+        border-radius: 50px;
+        background-color: #c9ad73;
+      }
+      .wishlist-modal {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.7);
+          justify-content: center;
+          align-items: center;
+          z-index: 1000;
+      }
+  
+      .wishlist-content {
+          background-color: #ffffff;
+          padding: 20px;
+          border-radius: 10px;
+          width: 80%;
+          max-width: 600px;
+          margin: auto;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          position: relative;
+      }
+  
+      .wishlist-content h2 {
+          margin-top: 0;
+          color: #333;
+          text-align: center;
+          font-size: 24px;
+      }
+  
+      .wishlist-content .close-wishlist {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: none;
+          border: none;
+          font-size: 25px;
+          cursor: pointer;
+          color: #999;
+      }
+  
+      .wishlist-content .close-wishlist:hover {
+          color: red;
+      }
+  
+      .wishlist-content ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          max-height: 400px;
+          overflow-y: auto;
+      }
+  
+      .wishlist-content ul li {
+          display: flex;
+          align-items: center;
+          padding: 10px;
+          border-bottom: 1px solid #eee;
+      }
+      .wishlist-content ul li input[type="number"] {
+            width: 50px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+  
+      .wishlist-content ul li img {
+          width: 50px;
+          height: 50px;
+          object-fit: cover;
+          border-radius: 5px;
+          margin-right: 10px;
+      }
+  
+      .wishlist-content ul li span {
+          flex-grow: 1;
+          color: #333;
+      }
+  
+      .wishlist-content ul li .delete-button {
+          background: none;
+          border: none;
+          font-size: 16px;
+          cursor: pointer;
+          color: red;
+          margin-left: 10px;
+      }
+  
+      .wishlist-content ul li .delete-button:hover {
+          color: darkred;
+      }
+      .product-banner-image {
+  display: none;
+}
+
+/* Afișează imaginea doar pe ecrane mai mici de 768px */
+@media screen and (max-width: 768px) {
+  .product-banner-image {
+    display: block;
+    width: 50%; /* Asigură-te că imaginea este responsive */
+    height: auto;
+    margin: 0 auto 20px; /* Adaugă un spațiu sub imagine */
+  }
+}
+  </style>
+
+    <script>
+        function changeLanguage(lang) {
+            const home = {
+                ro: "Acasă",
+                en: "Home",
+                hu: "Kezdőlap"
+            };
+            document.querySelector('#home').innerText = home[lang];
+
+            const about = {
+                ro: "Despre Noi",
+                en: "About",
+                hu: "Rólunk"
+            };
+            document.querySelector('#about').innerText = about[lang];
+
+            const contact = {
+                ro: "Contact",
+                en: "Contact",
+                hu: "Kapcsolat"
+            };
+            document.querySelector('#contact').innerText = contact[lang];
+
+            const title = {
+                ro: "Produse",
+                en: "Products",
+                hu: "Termékek"
+            };
+            document.querySelector('#title').innerText = title[lang];
+
+            const pro1 = {
+                ro: "Căni",
+                en: "Mugs",
+                hu: "Bögrék"
+            };
+            document.querySelector('#pro1').innerText = pro1[lang];
+            const pro2 = {
+                ro: "Magnet",
+                en: "Magnet",
+                hu: "Mágnes"
+            };
+            document.querySelector('#pro2').innerText = pro2[lang];
+            const pro3 = {
+                ro: "Băuturi",
+                en: "Drinks",
+                hu: "Italok"
+            };
+            document.querySelector('#pro3').innerText = pro3[lang];
+            const pro4 = {
+                ro: "Suvenir",
+                en: "Souvenir",
+                hu: "Ajándéktárgy"
+            };
+            document.querySelector('#pro4').innerText = pro4[lang];
+            const pro5 = {
+                ro: "Breloc",
+                en: "Keychain",
+                hu: "Kulcstartó"
+            };
+            document.querySelector('#pro5').innerText = pro5[lang];
+          }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const navOpenBtn = document.querySelector("[data-nav-open-btn]");
+            const navCloseBtn = document.querySelector("[data-nav-close-btn]");
+            const navbar = document.querySelector("[data-navbar]");
+            const overlay = document.querySelector("[data-overlay]");
+
+            navOpenBtn.addEventListener("click", function() {
+                navbar.classList.add("active");
+                overlay.classList.add("active");
+            });
+
+            navCloseBtn.addEventListener("click", function() {
+                navbar.classList.remove("active");
+                overlay.classList.remove("active");
+            });
+
+            overlay.addEventListener("click", function() {
+                navbar.classList.remove("active");
+                overlay.classList.remove("active");
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const searchForm = document.querySelector(".search-form");
+            const productList = document.querySelector(".product-list");
+
+            searchForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                const searchTerm = document.getElementById("searchInput").value.trim().toLowerCase();
+
+                const products = document.querySelectorAll(".product-item");
+                products.forEach(function(product) {
+                    const title = product.querySelector(".card-title").innerText.toLowerCase();
+
+                    if (title.includes(searchTerm)) {
+                        product.style.display = "block";
+                    } else {
+                        product.style.display = "none";
+                    }
+                });
+            });
+        });
+
+        const categoryButtons = document.querySelectorAll(".category-button");
+        categoryButtons.forEach(function(button) {
+            button.addEventListener("click", function() {
+                const category = this.getAttribute("data-category");
+
+                const products = document.querySelectorAll(".product-item");
+                products.forEach(function(product) {
+                    const categories = product.getAttribute("data-categories").split(" ");
+
+                    if (category === "all" || categories.includes(category)) {
+                        product.style.display = "block";
+                    } else {
+                        product.style.display = "none";
+                    }
+                });
+            });
+        });
+
+        function addToWishlist(product) {
+    let wishlist = localStorage.getItem('wishlist');
+    if (wishlist) {
+        wishlist = JSON.parse(wishlist);
+        
+        // Verificăm dacă produsul există deja în wishlist
+        const existingProductIndex = wishlist.findIndex(p => p.id === product.id);
+        if (existingProductIndex !== -1) {
+            // Dacă există, creștem cantitatea
+            wishlist[existingProductIndex].quantity += product.quantity || 1;
+        } else {
+            // Altfel, adăugăm produsul în wishlist
+            wishlist.push(product);
+        }
+    } else {
+        wishlist = [product];
+    }
+    
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+}
+
+        function showWishlist() {
+        const wishlistModal = document.getElementById('wishlist-modal');
+        wishlistModal.style.display = 'flex';
+        displayWishlistItems();
+    }
+
+    function closeWishlist() {
+        const wishlistModal = document.getElementById('wishlist-modal');
+        wishlistModal.style.display = 'none';
+    }
+
+    function displayWishlistItems() {
+    const wishlistItems = document.getElementById('wishlist-items');
+    wishlistItems.innerHTML = '';
+
+    let wishlist = localStorage.getItem('wishlist');
+    const sendEmailBtn = document.getElementById('send-email-btn');
+
+    let totalAmount = 0;
+
+    if (wishlist && JSON.parse(wishlist).length > 0) {
+        wishlist = JSON.parse(wishlist);
+        wishlist.forEach(function(product, index) {
+            const priceValue = parseFloat(product.price.replace(' RON', '')); // Extrage prețul fără unitatea monetară
+            const quantity = product.quantity || 1;
+            const totalProductPrice = priceValue * quantity;
+            totalAmount += totalProductPrice;
+
+            const li = document.createElement('li');
+            li.classList.add('wishlist-item');
+            li.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <span>${product.name}</span>
+                <span>${totalProductPrice.toFixed(2)} RON</span>
+                <input type="number" min="1" value="${quantity}" onchange="updateQuantity(${index}, this.value)">
+                <button class="delete-button" onclick="removeFromWishlist(${index})">&times;</button>
+            `;
+            wishlistItems.appendChild(li);
+        });
+        sendEmailBtn.disabled = false; // Activează butonul
+    } else {
+        wishlist = [];
+        sendEmailBtn.disabled = true; // Dezactivează butonul dacă nu există produse
+    }
+
+    // Afișează totalul
+    const totalSpan = document.createElement('p');
+    totalSpan.innerHTML = `<strong>Total: ${totalAmount.toFixed(2)} RON</strong>`;
+    wishlistItems.appendChild(totalSpan);
+}
+
+
+function updateQuantity(index, quantity) {
+    let wishlist = localStorage.getItem('wishlist');
+    if (wishlist) {
+        wishlist = JSON.parse(wishlist);
+        wishlist[index].quantity = parseInt(quantity);
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        displayWishlistItems(); // Reafisează wishlist-ul cu prețurile actualizate
+    }
+}
+
+    function removeFromWishlist(index) {
+        let wishlist = localStorage.getItem('wishlist');
+        if (wishlist) {
+            wishlist = JSON.parse(wishlist);
+            wishlist.splice(index, 1);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            displayWishlistItems();
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+    const navOpenBtn = document.querySelector("[data-nav-open-btn]");
+    const navCloseBtn = document.querySelector("[data-nav-close-btn]");
+    const navbar = document.querySelector("[data-navbar]");
+    const overlay = document.querySelector("[data-overlay]");
+    const languageButtons = document.querySelector(".language-buttons");
+    const wishlistButton = document.querySelector(".wishlist-button");
+
+    navOpenBtn.addEventListener("click", function() {
+        navbar.classList.add("active");
+        overlay.classList.add("active");
+        languageButtons.style.display = "none";
+        wishlistButton.style.display = "none";
+    });
+
+    navCloseBtn.addEventListener("click", function() {
+        navbar.classList.remove("active");
+        overlay.classList.remove("active");
+        languageButtons.style.display = "flex";
+        wishlistButton.style.display = "flex";
+    });
+
+    overlay.addEventListener("click", function() {
+        navbar.classList.remove("active");
+        overlay.classList.remove("active");
+        languageButtons.style.display = "flex";
+        wishlistButton.style.display = "flex";
+    });
+    
+  });
+  function goToOrderForm() {
+  window.location.href = "order-form.html";
+}
+  
+
+    </script>
+</body>
+</html>

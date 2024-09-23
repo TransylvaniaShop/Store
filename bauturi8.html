@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Produs</title>
+    <link rel="stylesheet" href="products.css">
+    <script>
+        function changeLanguage(lang) {
+            // Simplu exemplu de schimbare a limbii
+            const descriptions = {
+                ro: "Setul Cadou cu 3 Accesorii în formă de sticlă de vin include accesorii elegante pentru vin, prezentate într-un design original care imită forma unei sticle de vin. Ideal pentru iubitorii de vin, acest set adaugă un plus de sofisticare și funcționalitate oricărei colecții de accesorii pentru vin.",
+                eng: "The Wine Glass 3-Accessory Gift Set includes elegant wine accessories presented in an original design that mimics the shape of a wine bottle. Ideal for wine lovers, this set adds sophistication and functionality to any wine accessory collection.",
+                hun: "A Wine Glass 3 kiegészítőből álló ajándékkészlet elegáns bortartozékokat tartalmaz, eredeti kivitelben, amely egy borosüveg formáját utánozza. Ideális a bor szerelmeseinek, ez a készlet kifinomultságot és funkcionalitást ad minden borkiegészítő kollekcióhoz."
+            };
+            document.querySelector('.product-description').innerText = descriptions[lang];
+            const button = {
+                ro: "Inapoi",
+                eng: "Back",
+                hun: "Vissza"
+            };
+            document.querySelector('.back-button').innerText = button[lang];
+            const name = {
+                ro: "Set Cadou 3 Accesorii #8",
+                eng: "Ajándék szett 3 tartozék #8",
+                hun: "Gift Set 3 Accessories #8"
+            };
+            document.querySelector('.product-name').innerText = name[lang];
+            const wishbut = {
+                ro: "Adauga in Wishlist",
+                eng: "Add to Wishlist",
+                hun: "Hozzáadás a kívánságlistához"
+            };
+            document.querySelector('.wishlist-button').innerText = wishbut[lang];
+        }
+
+        function addToWishlist() {
+            const product = {
+                name: document.querySelector('.product-name').innerText,
+                price: document.querySelector('.product-price').innerText,
+                image: document.querySelector('.product-image').src,
+                description: document.querySelector('.product-description').innerText
+            };
+
+            let wishlist = localStorage.getItem('wishlist');
+            if (!wishlist) {
+                wishlist = [];
+            } else {
+                wishlist = JSON.parse(wishlist);
+            }
+
+            wishlist.push(product);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            alert('Produsul a fost adăugat în wishlist!');
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <button class="back-button" onclick="window.location.href='index.html'">Inapoi</button>
+    <div class="language-buttons">
+        <button class="language-button" onclick="changeLanguage('ro')">RO</button>
+        <button class="language-button" onclick="changeLanguage('eng')">ENG</button>
+        <button class="language-button" onclick="changeLanguage('hun')">HUN</button>
+    </div>
+</div>
+
+<div class="product-content">
+    <img src="Sourvenirs\Bauturi\9.png" alt="Produs" class="product-image">
+    <div class="product-details">
+        <h1 class="product-name">Set Cadou 3 Accesorii #8</h1>
+        <h2 class="product-price">95 RON</h2>
+        <p class="product-description">Setul Cadou cu 3 Accesorii în formă de sticlă de vin include accesorii elegante pentru vin, prezentate într-un design original care imită forma unei sticle de vin. Ideal pentru iubitorii de vin, acest set adaugă un plus de sofisticare și funcționalitate oricărei colecții de accesorii pentru vin.</p>
+        <button class="wishlist-button" onclick="addToWishlist()">Add to Wishlist</button>
+    </div>
+</div>
+
+</body>
+</html>

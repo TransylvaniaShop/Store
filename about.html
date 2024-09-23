@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Transylvania Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="gray">
+    <header class="header" data-header>
+        <div class="container">
+          <div class="overlay" data-overlay></div>
+          <nav class="navbar" data-navbar>
+            <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+              <ion-icon name="close-outline"></ion-icon>
+                </button>
+                <ul class="navbar-list">
+                    <li class="navbar-item">
+                      <a href="index.html" class="navbar-link" id="home">Home</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="about.html" class="navbar-link" id="about">About</a    >
+                      </li>
+                      <li class="navbar-item">
+                        <a href="contact.html" class="navbar-link" id="contact">Contact</a>
+                    </li>
+                  </ul>
+            </nav>
+          </div>
+        </header>
+        <div class="white-bar">
+          <div class="container">
+            <a href="index.html" class="logo">
+                <img src="Images/logo2.png" width="100" height="75" alt="Transylvania Souvenirs logo">
+            </a>
+            
+            <button class="nav-open-btn2" data-nav-open-btn aria-label="Open Menu">
+              <i class="fas fa-bars"></i> <!-- Iconița pentru meniu, folosind Font Awesome -->
+            </button>
+            <div class="language-buttons2">
+              <button onclick="changeLanguage('en')" class="language-button" id="lgn">ENG</button>
+                <button onclick="changeLanguage('ro')" class="language-button" id="lgn">RO</button>
+                <button onclick="changeLanguage('hu')" class="language-button" id="lgn">HUN</button>
+              </div>
+          </div>
+        </div>
+        <div class="container2">
+            <header>
+                <h1 id="welcome">Welcome to <span class="site-name">Transylvania Souvenirs</span></h1>
+                <p id="welcome-text">Where the magic of Transylvania comes to life through unique and authentic souvenirs.</p>
+            </header>
+            <section id="about-section">
+                <p id="story">Our story begins in the heart of this charming region, in the picturesque areas of Corund, Sovata, and Izvoare, places rich in history, tradition, and stunning natural beauty.</p>
+                <h2 id="mission-title">Our Mission</h2>
+                <p id="mission-text">Our team brings these treasures of Transylvania closer to you. Each product we offer is carefully chosen to preserve its authenticity and the spirit of its place of origin. We aim for our souvenirs to be more than just objects – they are stories, memories, and a tangible connection to this magical land.</p>
+                <h2 id="experiences-title">Soulful Experiences</h2>
+                <p id="experiences-text">Visitors who have explored Corund, Sovata, and Izvoare know that these places are more than tourist destinations; they are soulful experiences. We cater to all who wish to carry a piece of Transylvania's charm with them, to remember the beautiful moments spent here, and to share a bit of the magic of this paradise with loved ones.</p>
+                
+                <div class="card-container">
+                    <div class="card corund-zone">
+                        <h2 id="corund-title">Corund</h2>
+                        <p id="corund-text">Corund is renowned for its traditional crafts, where local artists create works of art from ceramics and textiles that reflect the soul of Transylvania. Each item is a testament to the talent and dedication of these artisans, a palpable memory of ancient culture and traditions.</p>
+                    </div>
+                    
+                    <div class="card sovata-zone">
+                        <h2 id="sovata-title">Sovata</h2>
+                        <p id="sovata-text">Sovata, with its miraculous waters and breathtaking mountain landscapes, is a place of legend. Lake Ursu, the only heliothermal lake in Europe, adds a touch of magic to every visit. Souvenirs from Sovata are infused with the essence of this blessed place, offering a glimpse of its mystery and beauty to anyone who takes them home.</p>
+                    </div>
+        
+                    <div class="card ivo-zone">
+                        <h2 id="ivo-title">Izvoare</h2>
+                        <p id="ivo-text">Izvoare, a village hidden among green hills and dense forests, is an oasis of peace and authenticity. Here, traditions are revered, and each souvenir is created with care and respect for nature and history.</p>
+                    </div>
+                </div>
+        
+                <p id="thanks">Thank you for choosing Transylvania Souvenirs to bring a piece of Transylvania home with you. We invite you to explore our collections and let yourself be enchanted by the stories that each souvenir carries.</p>
+            </section>
+        </div>
+        
+    <script>
+        function changeLanguage(lang) {
+            const translations = {
+                home: {
+                    ro: "Acasa",
+                    en: "Home",
+                    hu: "Kezdőlap"
+                },
+                about: {
+                    ro: "Despre Noi",
+                    en: "About",
+                    hu: "Rólunk"
+                },
+                contact: {
+                    ro: "Contact",
+                    en: "Contact",
+                    hu: "Kapcsolat"
+                },
+                welcome: {
+                    ro: 'Bine ați venit pe <span class="site-name">Transylvania Souvenirs</span>',
+                    en: 'Welcome to <span class="site-name">Transylvania Souvenirs</span>',
+                    hu: 'Üdvözöljük a <span class="site-name">Transylvania Souvenirs</span> oldalán'
+                },
+                welcomeText: {
+                    ro: "Locul unde magia Transilvaniei prinde viață prin suveniruri unice și autentice.",
+                    en: "The place where the magic of Transylvania comes to life through unique and authentic souvenirs.",
+                    hu: "A hely, ahol Erdély varázsa egyedi és hiteles ajándéktárgyakon keresztül kel életre."
+                },
+                story: {
+                    ro: "Povestea noastră începe în inima acestei regiuni fermecătoare, în zonele pitorești ale Corundului, Sovatei și Izvoare, locuri încărcate de istorie, tradiție și frumuseți naturale impresionante.",
+                    en: "Our story begins in the heart of this charming region, in the picturesque areas of Corund, Sovata, and Ivo, places full of history, tradition, and impressive natural beauty.",
+                    hu: "Történetünk ebben a bájos régióban kezdődik, Korond, Szováta és Ivó festői területein, ahol a történelem, a hagyomány és a lenyűgöző természeti szépség találkozik."
+                },
+                corundTitle: {
+                    ro: "Corund",
+                    en: "Corund",
+                    hu: "Korond"
+                },
+                corundText: {
+                    ro: "Corund este renumit pentru meșteșugurile sale tradiționale, unde artiști locali creează opere de artă din ceramică și textile care reflectă sufletul Transilvaniei. Fiecare obiect este o mărturie a talentului și dedicării acestor artizani, o amintire palpabilă a culturii și tradițiilor străvechi.",
+                    en: "Corund is renowned for its traditional crafts, where local artists create artworks from ceramics and textiles that reflect the soul of Transylvania. Each item is a testament to the talent and dedication of these artisans, a tangible memory of ancient culture and traditions.",
+                    hu: "Korond híres hagyományos kézművességéről, ahol helyi művészek kerámiából és textíliákból készítenek műalkotásokat, amelyek tükrözik Erdély lelkét. Minden tárgy a művészek tehetségének és elkötelezettségének tanúsága, a régi kultúra és hagyományok kézzelfogható emléke."
+                },
+                sovataTitle: {
+                    ro: "Sovata",
+                    en: "Sovata",
+                    hu: "Szováta"
+                },
+                sovataText: {
+                    ro: "Sovata, cu apele sale miraculoase și peisajele montane uluitoare, este un loc de poveste. Lacul Ursu, unicul lac heliotermal din Europa, adaugă un strop de magie fiecărei vizite. Suvenirurile din Sovata sunt impregnate cu esența acestui loc binecuvântat, oferind o parte din misterul și frumusețea sa oricui le poartă acasă.",
+                    en: "Sovata, with its miraculous waters and stunning mountain landscapes, is a fairy-tale place. Ursu Lake, the only heliothermal lake in Europe, adds a touch of magic to every visit. The souvenirs from Sovata are imbued with the essence of this blessed place, offering a part of its mystery and beauty to anyone who takes them home.",
+                    hu: "Szováta csodás vizeivel és lenyűgöző hegyi tájaival mesebeli hely. Az Ursu-tó, Európa egyetlen heliotermikus tava, minden látogatást megigéz. A szovátai ajándéktárgyak átitatva vannak e hely áldásos lényegével, titokzatosságával és szépségével, amit bárki hazavihet."
+                },
+                ivoTitle: {
+                    ro: "Izvoare",
+                    en: "Ivo",
+                    hu: "Ivó"
+                },
+                ivoText: {
+                    ro: "Izvoare, un sat ascuns printre dealuri verzi și păduri dese, este o oază de liniște și autenticitate. Aici, tradițiile se păstrează cu sfințenie, iar fiecare suvenir este creat cu grijă și respect pentru natură și istorie.",
+                    en: "Ivo, a village hidden among green hills and dense forests, is an oasis of tranquility and authenticity. Here, traditions are preserved with reverence, and each souvenir is created with care and respect for nature and history.",
+                    hu: "Ivó, egy zöld dombok és sűrű erdők közé rejtett falu, a nyugalom és a hitelesség oázisa. Itt a hagyományokat szent tisztelettel őrzik, és minden ajándéktárgy gondosan és tisztelettel készül a természet és a történelem iránt."
+                },
+                missionTitle: {
+                    ro: "Misiunea Noastră",
+                    en: "Our Mission",
+                    hu: "Küldetésünk"
+                },
+                missionText: {
+                    ro: "Echipa noastra, aduce aceste comori ale transilvaniei mai aproape de tine. Fiecare produs pe care îl oferim este ales cu atenție, asigurându-ne că păstrează autenticitatea și spiritul locului din care provine. Dorim ca suvenirurile noastre să fie mai mult decât simple obiecte – să fie povești, amintiri și o conexiune tangibilă cu acest tărâm magic.",
+                    en: "At Transylvania Souvenirs, we are dedicated to bringing these Transylvanian treasures closer to you. Each product we offer is carefully selected, ensuring it retains the authenticity and spirit of the place it comes from. We want our souvenirs to be more than just objects – to be stories, memories, and a tangible connection to this magical land.",
+                    hu: "A Transylvania Souvenirsnál elkötelezettek vagyunk abban, hogy közelebb hozzuk ezeket az erdélyi kincseket. Minden általunk kínált terméket gondosan válogatunk, biztosítva, hogy megőrizze a hely hitelességét és szellemét, ahonnan származik. Azt szeretnénk, ha ajándéktárgyaink többek lennének, mint egyszerű tárgyak – történetek, emlékek és kézzelfogható kapcsolatok e varázslatos földdel."
+                },
+                experiencesTitle: {
+                    ro: "Experiențe de Suflet",
+                    en: "Soulful Experiences",
+                    hu: "Lélekkel teli élmények"
+                },
+                experiencesText: {
+                    ro: "Vizitatorii care au explorat Corundul, Sovata și Izvoare știu că aceste locuri sunt mai mult decât destinații turistice; sunt experiențe de suflet. Ne adresăm tuturor celor care doresc să poarte cu ei o parte din farmecul Transilvaniei, să-și amintească de momentele frumoase petrecute aici și să împărtășească cu cei dragi un strop din magia acestui colț de rai.",
+                    en: "Visitors who have explored Corund, Sovata, and Ivo know that these places are more than tourist destinations; they are soulful experiences. We cater to all who wish to carry a part of Transylvania's charm with them, to remember the beautiful moments spent here, and to share a bit of the magic of this heavenly corner with their loved ones.",
+                    hu: "Azok a látogatók, akik felfedezték Korondot, Szovátát és Ivót, tudják, hogy ezek a helyek többek, mint turisztikai célpontok; lélekkel teli élmények. Mindazoknak szólunk, akik szeretnék magukkal vinni Erdély varázsának egy részét, emlékezni az itt töltött szép pillanatokra, és megosztani e mennyei sarok varázsát szeretteikkel."
+                },
+                thanks: {
+                    ro: "Mulțumim că ați ales Transylvania Souvenirs pentru a vă aduce acasă o parte din Transilvania. Vă invităm să descoperiți colecțiile noastre și să vă lăsați vrăjiți de poveștile pe care fiecare suvenir le poartă cu el.",
+                    en: "Thank you for choosing Transylvania Souvenirs to bring a piece of Transylvania home with you. We invite you to explore our collections and be enchanted by the stories each souvenir carries with it.",
+                    hu: "Köszönjük, hogy a Transylvania Souvenirs-t választotta, hogy hazavigyen egy darabot Erdélyből. Meghívjuk, hogy fedezze fel gyűjteményeinket, és hagyja, hogy elbűvöljék a történetek, amelyeket minden ajándéktárgy magával hordoz."
+                }
+            };
+
+            document.querySelector('#home').innerText = translations.home[lang];
+            document.querySelector('#about').innerText = translations.about[lang];
+            document.querySelector('#contact').innerText = translations.contact[lang];
+            document.querySelector('#welcome').innerHTML = translations.welcome[lang];
+            document.querySelector('#welcome-text').innerText = translations.welcomeText[lang];
+            document.querySelector('#story').innerText = translations.story[lang];
+            document.querySelector('#corund-title').innerText = translations.corundTitle[lang];
+            document.querySelector('#corund-text').innerText = translations.corundText[lang];
+            document.querySelector('#sovata-title').innerText = translations.sovataTitle[lang];
+            document.querySelector('#sovata-text').innerText = translations.sovataText[lang];
+            document.querySelector('#ivo-title').innerText = translations.ivoTitle[lang];
+            document.querySelector('#ivo-text').innerText = translations.ivoText[lang];
+            document.querySelector('#mission-title').innerText = translations.missionTitle[lang];
+            document.querySelector('#mission-text').innerText = translations.missionText[lang];
+            document.querySelector('#experiences-title').innerText = translations.experiencesTitle[lang];
+            document.querySelector('#experiences-text').innerText = translations.experiencesText[lang];
+            document.querySelector('#thanks').innerText = translations.thanks[lang];
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const navOpenBtn = document.querySelector("[data-nav-open-btn]");
+            const navCloseBtn = document.querySelector("[data-nav-close-btn]");
+            const navbar = document.querySelector("[data-navbar]");
+            const overlay = document.querySelector("[data-overlay]");
+
+            navOpenBtn.addEventListener("click", function() {
+                navbar.classList.add("active");
+                overlay.classList.add("active");
+            });
+
+            navCloseBtn.addEventListener("click", function() {
+                navbar.classList.remove("active");
+                overlay.classList.remove("active");
+            });
+
+            overlay.addEventListener("click", function() {
+                navbar.classList.remove("active");
+                overlay.classList.remove("active");
+            });
+        });
+        
+    </script>
+    <style>
+        .language-button2 {
+          color: white;
+          text-decoration: underline;
+          font-size: 15px;
+          transition: 0.5s;
+        }
+        .language-button2:hover {
+          color: var(--bittersweet);
+          text-decoration: underline;
+          font-size: 15px;
+        }
+        .language-buttons2 {
+          display: flex;
+          justify-content: center;
+          padding: 10px;
+          position: relative;
+          right: 100px;
+      }
+      .language-button2, .wishlist-button {
+          background: none;
+          border: 1px solid var(--bittersweet);
+          color: var(--bittersweet);
+          margin: 0 5px;
+          padding: 5px 10px;
+          cursor: pointer;
+          transition: background 0.3s, color 0.3s;
+          margin-bottom: 10px;
+      }
+  
+      .language-button2:hover {
+        background: var(--bittersweet);
+        color: var(--white);
+      }
+      language-buttons2 {
+          margin-top: -16%;
+          margin-left: 135px;
+          position: relative;
+          z-index: 10;
+      }
+        </style>
+</body>
+</html>

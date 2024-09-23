@@ -1,0 +1,175 @@
+* {
+    overflow-x: hidden;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    color: #E0E0E0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #163020;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.back-button {
+    background-color: #304D30;
+    color: white;
+    font-weight: initial;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #163020;
+}
+
+.language-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.language-button {
+    background-color: #304D30;
+    color: white;
+    font-weight: initial;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.language-button:hover {
+    background-color: #163020;
+}
+
+.product-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 20px;
+    flex-wrap: wrap; /* Adăugat pentru a permite flexarea pe rânduri pe ecrane mici */
+}
+
+.product-image {
+    width: 30%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px 2px rgba(0, 0, 0, 0.65);
+}
+.product-video {
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px 2px rgba(0, 0, 0, 0.65);
+}
+
+.product-details {
+    margin-left: 20px;
+    flex: 1;
+}
+
+.product-price {
+    color: #304D30;
+    font-size: 24px;
+    margin: 0 0 10px 0;
+    text-align: right;
+}
+
+#pozaurmator {
+    display: none;
+}
+
+.product-description {
+    color: #304D30;
+    font-size: 16px;
+    line-height: 1.5;
+    width: 550px;
+    margin-top: 0;
+}
+
+.product-name {
+    color: #304D30;
+    margin-bottom: -25px;
+}
+
+.wishlist-button {
+    background-color: #304D30;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.wishlist-button:hover {
+    background-color: #163020;
+}
+
+::selection {
+    background-color: rgb(217, 156, 66);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .header {
+        width: 100%;
+    }
+    .product-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .product-image {
+        width: 80%; /* Ajustare lățime pentru a arăta bine pe ecrane mici */
+        margin-bottom: 20px;
+    }
+    .product-details {
+        text-align: center;
+        margin-left: 0; /* Eliminare margin-left pentru a centra textul */
+    }
+    .product-name {
+        font-size: 24px;
+    }
+    .product-price {
+        font-size: 20px;
+        text-align: center; /* Centrare preț pe ecrane mici */
+        margin-top: 40px;
+    }
+    .product-description {
+        font-size: 16px;
+        width: 90%; /* Ajustare lățime pentru a arăta bine pe ecrane mici */
+        margin-left: 0; /* Eliminare margin-left pentru a centra textul */
+    }
+    .language-buttons{
+        position: relative;
+        right: 30px;
+        
+    }
+    .product-video {
+        width: 75%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px 2px rgba(0, 0, 0, 0.65);
+        margin-left: 13%;
+    }
+}

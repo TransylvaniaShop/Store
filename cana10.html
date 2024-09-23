@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Cana Romania</title>
+    <link rel="stylesheet" href="products.css">
+    <script>
+        function changeLanguage(lang) {
+            // Simplu exemplu de schimbare a limbii
+            const descriptions = {
+                ro: "Cană Ceaușescu din ceramică, cu portretul lui Nicolae Ceaușescu și detalii nostalgice ale perioadei comuniste. Ideală ca suvenir sau pentru servirea băuturilor, aducând un touch istoric și retro.",
+                eng: "Ceaușescu mug made of ceramic, featuring Nicolae Ceaușescu's portrait and nostalgic details of the communist era. Ideal as a souvenir or for serving drinks, adding a touch of history and retro vibe.",
+                hun: "Ceaușescu bögre kerámiából, Nicolae Ceaușescu portréjával és a kommunista korszak nosztalgikus részleteivel. Ideális szuvenírként vagy italok felszolgálásához, történelmi és retro hangulatot kölcsönöz."
+            };
+            document.querySelector('.product-description').innerText = descriptions[lang];
+            const button = {
+                ro: "Inapoi",
+                eng: "Back",
+                hun: "Vissza"
+            };
+            document.querySelector('.back-button').innerText = button[lang];
+            const name = {
+                ro: "Cana Ceaușescu #8",
+                eng: "Mug Ceaușescu #8",
+                hun: "Bögre Ceaușescu #8"
+            };
+            document.querySelector('.product-name').innerText = name[lang];
+            const wishbut = {
+                ro: "Adauga in Wishlist",
+                eng: "Add to Wishlist",
+                hun: "Hozzáadás a kívánságlistához"
+            };
+            document.querySelector('.wishlist-button').innerText = wishbut[lang];
+        }
+
+        function addToWishlist() {
+            const product = {
+                name: document.querySelector('.product-name').innerText,
+                price: document.querySelector('.product-price').innerText,
+                image: document.querySelector('.product-image').src,
+                description: document.querySelector('.product-description').innerText
+            };
+
+            let wishlist = localStorage.getItem('wishlist');
+            if (!wishlist) {
+                wishlist = [];
+            } else {
+                wishlist = JSON.parse(wishlist);
+            }
+
+            wishlist.push(product);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            alert('Produsul a fost adăugat în wishlist!');
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <button class="back-button" onclick="window.location.href='index.html'">Inapoi</button>
+    <div class="language-buttons">
+        <button class="language-button" onclick="changeLanguage('ro')">RO</button>
+        <button class="language-button" onclick="changeLanguage('eng')">ENG</button>
+        <button class="language-button" onclick="changeLanguage('hun')">HUN</button>
+    </div>
+</div>
+
+<div class="product-content">
+    <figure class="product-media">
+        <video width="350" height="450" class="product-video" preload="none" loop autoplay muted playsinline>
+            <source src="Sourvenirs/Cani/10.mp4" type="video/mp4">
+            Browser-ul tău nu suportă elementul video.
+        </video>
+        <img src="Sourvenirs\Cani\11.png" alt="Produs" class="product-image" id="pozaurmator">
+    </figure>
+    <div class="product-details">
+        <h1 class="product-name">Cana Ceaușescu #8</h1>
+        <h2 class="product-price">20 RON</h2>
+        <p class="product-description">Cană Ceaușescu din ceramică, cu portretul lui Nicolae Ceaușescu și detalii nostalgice ale perioadei comuniste.</p>
+        <button class="wishlist-button" onclick="addToWishlist()">Add to Wishlist</button>
+    </div>
+</div>
+
+</body>
+</html>
